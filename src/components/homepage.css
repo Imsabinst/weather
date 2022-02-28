@@ -1,0 +1,24 @@
+.main {
+  margin: auto;
+  width: 80%;
+}
+.main input {
+  min-width: 70%;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 4px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 2px rgb(9, 40, 44);
+}
+.main button {
+  min-width: 20%;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 4px;
+  outline: none;
+  border: none;
+  color: aliceblue;
+  background-color: rgb(15, 15, 51);
+  box-shadow: 0px 0px 3px rgb(180, 137, 137);
+}
