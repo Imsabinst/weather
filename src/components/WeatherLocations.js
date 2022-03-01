@@ -10,15 +10,18 @@ const WeatherLocations = ({ location }) => {
   const [singleLocation, setSingleLocation] = useState("");
 
   const getMoreInfo = async (cw) => {
-    try {
-      const url = `https://dataservice.accuweather.com/currentconditions/v1/${cw.Key}?apikey=${apikey}`;
-      const res = await axios.get(url);
-      const location_data = await res.data;
-      setCurrentWeather(location_data);
-    } catch (error) {
-      console.log(error);
+    if (cw) {
+      try {
+        const url = `https://dataservice.accuweather.com/currentconditions/v1/${cw.Key}?apikey=${apikey}`;
+        const res = await axios.get(url);
+        const location_data = await res.data;
+        setCurrentWeather(location_data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
+
   useEffect(() => {
     getMoreInfo();
   }, []);
