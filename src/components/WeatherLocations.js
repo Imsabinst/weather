@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
-import { apikey } from "../data/constants";
+import { apikey, baseURL } from "../data/constants";
 import "./weatherLocations.css";
 
-import WeatherDetailsCard from "./WeatherDetailsCard";
-
-const WeatherLocations = ({ location }) => {
-  const [currentWeather, setCurrentWeather] = useState("");
-  const [singleLocation, setSingleLocation] = useState("");
-
+const WeatherLocations = ({
+  location,
+  setCurrentWeather,
+  setSingleLocation,
+}) => {
   const getMoreInfo = async (cw) => {
     if (cw) {
       try {
-        const url = `https://dataservice.accuweather.com/currentconditions/v1/${cw.Key}?apikey=${apikey}`;
+        const url = `${baseURL}/currentconditions/v1/${cw.Key}?apikey=${apikey}`;
         const res = await axios.get(url);
         const location_data = await res.data;
         setCurrentWeather(location_data);
@@ -21,10 +19,6 @@ const WeatherLocations = ({ location }) => {
       }
     }
   };
-
-  useEffect(() => {
-    getMoreInfo();
-  }, []);
 
   return (
     <div>
@@ -49,12 +43,6 @@ const WeatherLocations = ({ location }) => {
             );
           })}
       </div>
-      {currentWeather ? (
-        <WeatherDetailsCard
-          currentWeather={currentWeather}
-          location={singleLocation}
-        />
-      ) : null}
     </div>
   );
 };
