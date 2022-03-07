@@ -10,6 +10,7 @@ const Homepage = () => {
   const [location, setLocation] = useState("");
   const [currentWeather, setCurrentWeather] = useState("");
   const [singleLocation, setSingleLocation] = useState("");
+  const [error, setError] = useState(false);
 
   const getData = async () => {
     try {
@@ -40,7 +41,12 @@ const Homepage = () => {
       />
       <button
         onClick={() => {
-          getData(city);
+          if (city === "") {
+            setError(true);
+          } else {
+            getData(city);
+            setError(false);
+          }
         }}
         variant="primary"
       >
