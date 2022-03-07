@@ -67,6 +67,7 @@ const Homepage = () => {
           location={singleLocation}
         />
       ) : null}
+      <div>{error ? "Please, enter a valid city name..." : null}</div>
     </div>
   );
 };
