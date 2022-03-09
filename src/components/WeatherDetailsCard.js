@@ -1,15 +1,20 @@
 import React from "react";
 import "./weatherDetailsCard.css";
 
-const WeatherDetailsCard = ({ currentWeather, location }) => {
+const WeatherDetailsCard = ({ currentWeather, singleLocation }) => {
   return (
-    <div className="info">
+    <div className="weather__info">
       <div>
-        {location.EnglishName}, {location.Country.ID}
+        <p>
+          {singleLocation.EnglishName}{" "}
+          <sup className="sup__name">{singleLocation.Country.ID}</sup>
+        </p>
       </div>
-      <div>
-        {currentWeather[0].Temperature.Metric.Value}&deg;{" "}
-        {currentWeather[0].Temperature.Metric.Unit}
+      <div className="temp_details">
+        <div className="temp__value">
+          {currentWeather[0].Temperature.Metric.Value}&deg;
+          <b>{currentWeather[0].Temperature.Metric.Unit}</b>
+        </div>
       </div>
       <div>
         <img

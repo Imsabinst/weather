@@ -1,2 +1,2 @@
 export const baseURL = "https://dataservice.accuweather.com";
-export const apikey = "oXBhGKImcIkDblxbw0y6WDgTCHhuplQv";
+export const apikey = "BqYRgSDKad05nowygRDMSaQaIGSOpCU5";
